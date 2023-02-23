@@ -6,7 +6,7 @@ import { ProjectModule  } from './project/projects.module';
 
 @Module({
 
-  imports: [ProjectModule, MongooseModule.forRoot('mongodb+srv://will:will@cluster0.eo5xpwp.mongodb.net/nestjs--test')],
+  imports: [ProjectModule, MongooseModule.forRoot('mongodb+srv://will:will@cluster0.eo5xpwp.mongodb.net/maker-tracker')],
   controllers: [AppController],
   providers: [AppService],
 })
