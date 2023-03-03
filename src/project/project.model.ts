@@ -15,7 +15,7 @@ export interface Project extends mongoose.Document{
     type: String,
     description: String,
     materials: [String],
-    price_estimation: any,
+    price_estimation: String,
     to_do_next: String
 }
 

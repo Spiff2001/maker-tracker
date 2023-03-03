@@ -4,6 +4,7 @@ import {Injectable,NotFoundException} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Project } from './project.model';
+
  
 @Injectable()
 export class ProjectsService{
@@ -31,13 +32,12 @@ export class ProjectsService{
         const project = await this.findProject(projectID);
         console.log(project)
        return {id: project.id,title: project.title, type: project.type, description: project.description, price_estimation: project.price_estimation, to_do_next: project.to_do_next};
-        //flesh this out
      }
    
-    //  ask bradford about how to run two concurrent get by param methods
+    
      async fetchProjectsByType(project_type: string){
         const projects = await this.projectModel.find().exec();
-        let filtered_projects = projects.filter(element => element.type===project_type);
+        let filtered_projects = projects.filter(element => element.type.includes(project_type));
         console.log(filtered_projects)
         return {filtered_projects};
     }
